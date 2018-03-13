@@ -9,3 +9,6 @@ Everything will explained inside application.
 
 # Where's the component files?
 At <b>resource/assets/js/components/master</b>
+
+# Notes
+Use with caution :v
