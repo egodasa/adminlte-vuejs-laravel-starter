@@ -20,3 +20,6 @@ Route::get('vue', function () {
 Route::get('vue2', function () {
     return view('halamanvue2');
 });
+Route::get('form', function () {
+    return view('halamanform');
+});

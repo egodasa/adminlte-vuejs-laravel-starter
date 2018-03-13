@@ -21,8 +21,13 @@
 		@yield('content')
     <script src="{{asset('js/app.js')}}"></script>
     <script>
-	let app = new Vue({
+    let dataMix = {}
+    </script>
+    @yield('vuedata')
+    <script>
+	const app = new Vue({
 		el : "#app",
+		mixins : [dataMix],
 		data (){
 			return {
 				menu : [
@@ -40,6 +45,11 @@
 						url : '/vue2',
 						icon : 'fa fa-dashboard',
 						text : 'Halaman Vue 2'
+					},
+					{
+						url : '/form',
+						icon : 'fa fa-dashboard',
+						text : 'Contoh Form'
 					},
 					{
 						icon : 'fa fa-dashboard',

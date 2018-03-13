@@ -12,6 +12,7 @@ import header from './components/master/header.vue'
 import sidebar from './components/master/sidebar.vue'
 import content from './components/master/content.vue'
 import footer from './components/master/footer.vue'
+import formGenerator from './components/master/formGenerator.vue'
 window.Vue = Vue;
 
 /**
@@ -25,4 +26,5 @@ Vue.component('header-section', header);
 Vue.component('sidebar-section', sidebar);
 Vue.component('content-section', content);
 Vue.component('footer-section', footer);
+Vue.component('form-generator', formGenerator);
 

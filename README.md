@@ -10,5 +10,10 @@ Everything will explained inside application.
 # Where's the component files?
 At <b>resource/assets/js/components/master</b>
 
+# Component list
+
+Core components : header, sidebar, content, footer
+Additional component : form generator
+
 # Notes
 Use with caution :v

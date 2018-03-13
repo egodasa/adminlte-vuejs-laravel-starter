@@ -19,7 +19,7 @@
 				 dan didaftarkan dengan nama komponen <b>&lt;contoh-halaman/&gt;, serta diterapkan ke view blade dengan nama <b>halamanvue.blade.php</b></b>
 			</div>
 			<div class="box-body">
-				Kita bisa membuat halaman dengan 2 cara :
+				Kita bisa membuat halaman dengan 2 cara : <?="{{daftar}}"?>
 				<ol>
 					<li>Membuat halaman dengan komponen vue 99% dan blade 1%<br/>
 						<ul>
@@ -29,7 +29,7 @@
 						</ul>
 					</li>
 					<li>
-					Membuat halaman dengan vue 50% dan blade 50%
+					Membuat halaman dengan vue 50% dan blade 50% 
 						<ul>
 							<li>Membuat sebuah view pada laravel</li>
 							<li>Kemudian buat instance baru vue, dan tambahkan komponent vue (resource/assets/js/components/master)
@@ -53,4 +53,16 @@
 	</content-section>
 	<footer-section></footer-section>
 	</div>
+@endsection
+
+@section('vuedata')
+<script>
+dataMix = {
+	data(){
+		return {
+			daftar : "gundul"
+		}
+	}
+}
+</script>
 @endsection
