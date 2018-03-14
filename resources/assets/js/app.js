@@ -14,6 +14,8 @@ import content from './components/master/content.vue'
 import footer from './components/master/footer.vue'
 import formGenerator from './components/master/formGenerator.vue'
 import Vuetable from 'vuetable-2/src/components/Vuetable'
+import VuetablePagination from 'vuetable-2/src/components/VuetablePagination'
+import VuetablePaginationInfo from 'vuetable-2/src/components/VuetablePaginationInfo'
 
 window.Vue = Vue;
 
@@ -30,6 +32,6 @@ Vue.component('content-section', content);
 Vue.component('footer-section', footer);
 Vue.component('form-generator', formGenerator);
 Vue.component('vuetable', Vuetable);
-Vue.component('vuetable-pagination', Vuetable.VuetablePagination);
-Vue.component('vuetable-pagination-info', Vuetable.VuetablePaginationInfo);
+Vue.component('vuetable-pagination', VuetablePagination);
+Vue.component('vuetable-pagination-info', VuetablePaginationInfo);
 

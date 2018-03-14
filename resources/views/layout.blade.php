@@ -52,6 +52,11 @@
 						text : 'Contoh Form'
 					},
 					{
+						url : '/tabel',
+						icon : 'fa fa-dashboard',
+						text : 'Contoh Tabel'
+					},
+					{
 						icon : 'fa fa-dashboard',
 						text : 'contoh 2',
 						child : [

@@ -44,12 +44,28 @@ class Dosen extends Controller
 	                
 		$data->data = $kueri->get();
 		
+		$lastPage = ceil($totalData->total/(int)$per_page);
+		
+		$queryStringNext = [
+			"per_page"		=> $per_page,
+			"page"			=> $page+1 <= 1 ? null : $page+1,
+			"sort"			=> $sort
+		];
+		$queryStringPrev = [
+			"per_page"		=> $per_page,
+			"page"			=> $page-1 > $lastPage ? null : $page-1,
+			"sort"			=> $sort
+		];
+		
 		$data->pagination = [
 			"total"			=> $totalData->total,
 			"per_page"		=> (int)$per_page,
 			"current_page"	=> (int)$page,
 			"from"			=> (($page-1)*$per_page)+1,
-			"to"			=> ($page*$per_page)
+			"to"			=> ($page*$per_page),
+			"last_page"		=> $lastPage,
+			"next_page_url" => $queryStringNext['page'] == null ? null : strtok($_SERVER["REQUEST_URI"],'?').'?'.http_build_query($queryStringNext),
+			"prev_page_url" => $queryStringPrev['page'] == null ? null : strtok($_SERVER["REQUEST_URI"],'?').'?'.http_build_query($queryStringPrev)
 		];
 		return response()->json($data);
     }

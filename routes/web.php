@@ -23,6 +23,9 @@ Route::get('vue2', function () {
 Route::get('form', function () {
     return view('halamanform');
 });
+Route::get('tabel', function () {
+    return view('tabel');
+});
 Route::group(['prefix'=>'api/dosen'],function(){
 	Route::get('/','API\Dosen@index');
 	Route::get('/{id}','API\Dosen@show');
