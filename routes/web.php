@@ -23,3 +23,10 @@ Route::get('vue2', function () {
 Route::get('form', function () {
     return view('halamanform');
 });
+Route::group(['prefix'=>'api/dosen'],function(){
+	Route::get('/','API\Dosen@index');
+	Route::get('/{id}','API\Dosen@show');
+	Route::post('/','API\Dosen@store');
+	Route::delete('/{id}','API\Dosen@destroy');
+	Route::put('/{id}','API\Dosen@update');
+});
