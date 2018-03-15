@@ -14,28 +14,28 @@ class Dosen extends Controller
      * @return \Illuminate\Http\Response
      */
     public $tablePk = 'nidn';
-    public $validateQueryString = [
-		"per_page"		=> "bail|sometimes|numeric|min:1",
-		"page"		=> "bail|sometimes|numeric|min:1",
-		"sort"		=> ["bail","sometimes","regex:/[a-zA-Z0-9]{0,20}\|(asc|desc)/"]
-    ];
+    public $table = "tbdosen";
     public function index(Request $req)
     {
+		$validateQueryString = [
+			"per_page"		=> "bail|sometimes|numeric|min:1",
+			"page"		=> "bail|sometimes|numeric|min:1",
+			"sort"		=> ["bail","sometimes","regex:/[a-zA-Z0-9]{0,20}\|(asc|desc)/"]
+	    ];
         $data = new \stdClass;
 		$per_page = $req->query('per_page');
 		$page = $req->query('page');
-		
 		$sort = $req->query('sort');
 		
-		$validator = \Validator::make($req->query(), $this->validateQueryString);
+		$validator = \Validator::make($req->query(), $validateQueryString);
 		if($validator->fails()){
 			$data->error = $validator->errors();
 			$data->status_code = "422";
 		}else{
 			if(isset($sort)) $sort = explode('|',$sort);
 		
-			$base_kueri = DB::table('tbdosen');
-			$totalData = DB::table('tbdosen')->select(DB::raw('COUNT(1) as total'))->get()->first();
+			$base_kueri = DB::table($this->table);
+			$totalData = DB::table($this->table)->select(DB::raw('COUNT(1) as total'))->get()->first();
 			
 			if(isset($per_page) && !isset($page)) $page = 1;
 			else if(!isset($per_page) && isset($page)) $per_page = 10;
@@ -70,7 +70,6 @@ class Dosen extends Controller
 				];
 				
 				$data->pagination = [
-					"total"			=> $totalData->total,
 					"per_page"		=> (int)$per_page,
 					"current_page"	=> (int)$page,
 					"from"			=> (($page-1)*$per_page)+1,
@@ -80,6 +79,7 @@ class Dosen extends Controller
 					"prev_page_url" => $queryStringPrev['page'] == null ? null : strtok($_SERVER["REQUEST_URI"],'?').'?'.http_build_query($queryStringPrev)
 				];
 			}
+			$data->pagination['total'] = $totalData->total;
 			$data->status_code = "200";
 		}
 		return response()->json($data, $data->status_code);
