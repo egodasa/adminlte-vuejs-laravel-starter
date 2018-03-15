@@ -63,6 +63,7 @@
 			<vuetable
 				ref="vuetable" 
 				track-by="tablePk" 
+				:sort-order="defaultSort"
 				:reactive-api-url.Boolean="true" 
 				:fields="columns" 
 				pagination-path="pagination" 
@@ -102,6 +103,7 @@ dataMix = {
 			url_get : "api/dosen",
 			perPage : 10,
 			search : null,
+			defaultSort : [{field:"nm_dosen",direction:"asc"}],
 			columns : [
 				{name: "__sequence", title:"No"},
 				{name: "nm_dosen", title:"Nama Dosen", sortField : "nm_dosen"},

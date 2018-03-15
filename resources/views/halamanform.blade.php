@@ -18,6 +18,28 @@
 				<h3>Halaman ini dibuat menggunakan file <b><u>resource/views/halamanform.blade.php</u></b></h3>
 			</div>
 			<div class="box-body">
+				Berikut adalah contoh dari form yang dihasilkan (Tekan CTRL + U untuk melihat koding komponen form-generator) :
+				<form-generator :model="model" :fields="fields" :error="error"></form-generator>
+				Nilai form : <br/>
+				NOBP : <?="{{model.nobp}}"?> <br/>
+				Nama Mahasiswa : <?="{{model.nm_mahasiswa}}"?>  <br/>
+				Kelas (id_kelas) : <?="{{model.id_kelas}}"?> <br/>
+				<button class="btn btn-primary" @click="modalStatus = !modalStatus">Klik tombol untuk memunculkan modal form</button>
+				<modal :show="modalStatus" title="Tambah Data">
+					<template slot="modalBody">
+						Berikut adalah contoh dari form yang dihasilkan (Tekan CTRL + U untuk melihat koding komponen form-generator) :
+						<form-generator :model="model" :fields="fields" :error="error"></form-generator>
+						Nilai form : <br/>
+						NOBP : <?="{{model.nobp}}"?> <br/>
+						Nama Mahasiswa : <?="{{model.nm_mahasiswa}}"?>  <br/>
+						Kelas (id_kelas) : <?="{{model.id_kelas}}"?> <br/>
+					</template>
+					<template slot="modalFooter">
+						<div class="pull-right">
+							<button class="btn btn-success">Simpan</button>
+						</div>
+					</template>
+				</modal>
 				<h4>Fitur</h4>
 				Form generator saat ini support :
 				<ul>
@@ -53,12 +75,6 @@
 					</ul>
 				</li>
 				</ol>
-				Berikut adalah contoh dari form yang dihasilkan (Tekan CTRL + U untuk melihat koding komponen form-generator) :
-				<form-generator :model="model" :fields="fields" :error="error"></form-generator>
-				Nilai form : <br/>
-				NOBP : <?="{{model.nobp}}"?> <br/>
-				Nama Mahasiswa : <?="{{model.nm_mahasiswa}}"?>  <br/>
-				Kelas (id_kelas) : <?="{{model.id_kelas}}"?> <br/>
 			</div>
 		</template>
 	</content-section>
@@ -71,6 +87,7 @@
 dataMix = {
 	data() {
 		return {
+			modalStatus : false,
 			model : {
 				nobp : null,
 				nm_mahasiswa : null,

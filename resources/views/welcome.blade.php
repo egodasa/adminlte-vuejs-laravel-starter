@@ -46,8 +46,11 @@
 						</ul>
 					</li>
 				</ol>
+			<alert type="info">
+			<h4><i class="icon fa fa-info"></i> Info</h4>
 			<u>Silahkan kombinasikan dengan template engine yang ada, agar lebih efisien. Terutama dalam membuat halaman dengan struktur
 			 dinamis sesuai hak akses pengguna.</u>
+			</alert>
 			</div>
 		</template>
 	</content-section>
