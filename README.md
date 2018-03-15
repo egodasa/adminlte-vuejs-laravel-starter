@@ -12,8 +12,12 @@ At <b>resource/assets/js/components/master</b>
 
 # Component list
 
-Core components : header, sidebar, content, footer
-Additional component : form generator
+Core components : header, sidebar, content, footer and 1 column components
+Additional component : 
+1. Form Generator
+2. Alert
+3. Modal
+4. Table (vuetable-2) with search, pagination, sort
 
 # Notes
 Use with caution :v
