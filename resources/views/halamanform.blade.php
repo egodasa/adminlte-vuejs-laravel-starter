@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title','Tutorial')
+@section('title','Contoh Form')
 @section('content')
 	<div id="app">
 	<header-section></header-section>

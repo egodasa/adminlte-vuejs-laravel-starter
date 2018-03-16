@@ -88,6 +88,24 @@
 				</div>
 			</div>
 			</div>
+			<?php
+				$data = [
+					"fields"=> [
+						[
+							"name"=>"nm_mahasiswa",
+							"title"=>"Nama"
+						],
+						[
+							"name"=>"nobp",
+							"title"=>"NOBP"
+						]
+					],
+					"data"=> $mhs
+				];
+				?>
+				@component('components.list',['data'=>$data])
+				
+				@endcomponent
 		</template>
 	</content-section>
 	<footer-section></footer-section>
