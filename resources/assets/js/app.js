@@ -8,6 +8,8 @@
 import './bootstrap'
 import Vue from 'vue'
 import contohHalaman from './views/contohHalaman.vue'
+import tabs from './components/master/tabs.vue'
+import tab from './components/master/tab.vue'
 import header from './components/master/header.vue'
 import modal from './components/master/modal.vue'
 import alert from './components/master/alert.vue'
@@ -32,6 +34,8 @@ window.Vue = Vue;
 
 Vue.component('contoh-halaman', contohHalaman);
 Vue.component('alert', alert);
+Vue.component('tab', tab);
+Vue.component('tabs', tabs);
 Vue.component('modal', modal);
 Vue.component('header-section', header);
 Vue.component('col-1-header-section', col_1_header);

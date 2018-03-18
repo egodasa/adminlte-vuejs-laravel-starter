@@ -41,7 +41,7 @@ class Dosen extends Controller
 			else if(!isset($per_page) && isset($page)) $per_page = 10;
 			
 			$kueri = $base_kueri->
-				when($sort, function ($query) use ($sort) {
+				when($sort || !empty($sort), function ($query) use ($sort) {
 							return $query->orderBy($sort[0], substr($sort[1],0,4));
 		                })->
 				when($per_page, function ($query) use ($per_page) {

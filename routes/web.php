@@ -26,6 +26,12 @@ Route::get('form', function () {
 Route::get('tabel', function () {
     return view('tabel');
 });
+Route::get('list', function () {
+    return view('list');
+});
+Route::get('tabs', function () {
+    return view('tabs');
+});
 Route::group(['prefix'=>'api/dosen'],function(){
 	Route::get('/','API\Dosen@index');
 	Route::get('/{id}','API\Dosen@show');

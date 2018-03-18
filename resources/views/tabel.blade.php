@@ -104,8 +104,6 @@
 				];
 				?>
 				@component('components.list',['data'=>$data])
-				
-				@endcomponent
 		</template>
 	</content-section>
 	<footer-section></footer-section>
