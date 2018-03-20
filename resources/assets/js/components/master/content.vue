@@ -1,5 +1,7 @@
 <template>
 <div class="content-wrapper">
+	<slot name="otherContent">
+	</slot>
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<slot name="contentHeader">
