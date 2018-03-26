@@ -14,6 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/contoh/layout', function () {
+    return view('extendlayout');
+});
+Route::get('/contoh/blade', function () {
+    return view('contohhalamanblade');
+});
 Route::get('vue', function () {
     return view('halamanvue');
 });
