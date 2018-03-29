@@ -17,8 +17,9 @@ Route::get('/', function () {
 Route::get('/contoh/layout', function () {
     return view('extendlayout');
 });
-Route::get('/contoh/blade', function () {
-    return view('contohhalamanblade');
+Route::get('/contoh/blade', 'Contoh@index');
+Route::get('/contoh/ceve', function () {
+    return view('ceve');
 });
 Route::get('vue', function () {
     return view('halamanvue');
@@ -45,3 +46,4 @@ Route::group(['prefix'=>'api/dosen'],function(){
 	Route::delete('/{id}','API\Dosen@destroy');
 	Route::put('/{id}','API\Dosen@update');
 });
+Route::get('/api/mahasiswa','API\Mahasiswa@index');

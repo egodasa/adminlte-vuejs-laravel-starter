@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
-class Dosen extends Controller
+class Mahasiswa extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class Dosen extends Controller
      * @return \Illuminate\Http\Response
      */
     public $tablePk = 'nidn';
-    public $table = "tbdosen";
+    public $table = "tbmahasiswa";
     public function index(Request $req)
     {
 		$validateQueryString = [
@@ -52,22 +52,22 @@ class Dosen extends Controller
     {
         $data = new \stdclass;
 		$insert = [
-			"nm_dosen"		=> $req->input('nm_dosen'),
+			"nm_mahasiswa"		=> $req->input('nm_mahasiswa'),
 			"nidn"		=> $req->input('nidn'),
-			"status_dosen"		=> $req->input('status_dosen',1)
+			"status_mahasiswa"		=> $req->input('status_mahasiswa',1)
 		];
 		$validate = [
-			"nm_dosen"		=> "bail|required|max:150",
+			"nm_mahasiswa"		=> "bail|required|max:150",
 			"nidn"		=> "bail|required|min:13|max:15",
-			"status_dosen"		=> "sometimes|nullable|numeric"
+			"status_mahasiswa"		=> "sometimes|nullable|numeric"
 	    ];
 		$validator = \Validator::make($insert, $validate);
 		if($validator->fails()){
 			$errors = $validator->errors();
 			$data->error = [
-				"nm_dosen"	=> $errors->first('nm_dosen'),
+				"nm_mahasiswa"	=> $errors->first('nm_mahasiswa'),
 				"nidn"	=> $errors->first('nidn'),
-				"status_dosen"	=> $errors->first('status_dosen')
+				"status_mahasiswa"	=> $errors->first('status_mahasiswa')
 			];
 			$data->status_code = "422";
 		}else{

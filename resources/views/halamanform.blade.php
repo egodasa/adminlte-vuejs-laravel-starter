@@ -91,12 +91,14 @@ dataMix = {
 			model : {
 				nobp : null,
 				nm_mahasiswa : null,
-				id_kelas : null
+				id_kelas : null,
+				tgl_lahir : null
 			},
 			error : {
 				nobp : null,
 				nm_mahasiswa : null,
-				kelas : null
+				kelas : null,
+				tgl_lahir : null
 			},
 			fields : [
 				{
@@ -124,6 +126,12 @@ dataMix = {
 						{id_kelas : 3, nm_kelas : "SI-2"},
 						{id_kelas : 2, nm_kelas : "SI-3"}
 					]
+				},
+				{
+					name:'tgl_lahir',
+					label:'Tanggal Lahir',
+					type : 'datepicker',
+					placeholder : 'Tanggal Lahir'
 				}
 			]
 		}

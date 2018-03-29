@@ -34,6 +34,10 @@
 								</select>
 							</div>
 						</template>
+						<template v-else-if="x.type == 'datepicker'">
+								<label>{{item.label}}</label>
+								<datepicker v-model="model[item.name]":placeholder="item.placeholder" input-class="input-class" wrapper-class="form-group" :bootstrap-styling.Boolean="true"></datepicker>
+						</template>
 				</template>
 			</div>
 		</template>
@@ -66,13 +70,20 @@
 					</select>
 				</div>
 			</template>
+			<template v-else-if="x.type == 'datepicker'">
+					<label>{{x.label}}</label>
+					<datepicker v-model="model[x.name]" :placeholder="x.placeholder" input-class="input-class" wrapper-class="form-group" :bootstrap-styling.Boolean="true"></datepicker>
+			</template>
 		</template>
 	</template>
 </div>
 </template>
 <script>
+import Datepicker from 'vuejs-datepicker';
 export default {
-	template : "#formGenerator",
+	components : {
+		Datepicker
+	},
 	props : {
 		fields : { //Object -> name, label, hint, placeholder
 			type : Array,
